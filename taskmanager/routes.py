@@ -10,7 +10,12 @@ def home():
 
 @app.route("/categories")
 def categories():
-    return render_template("categories.html")
+    categories = list(Category.query.order_by(Category.category_name).all())
+     # This has been converted to a list from a cursor
+     # (we are navigating the db so its a cursor, list method converts it to a python list)
+    return render_template("categories.html", categories=categories) 
+    # 1st instance is passing the variable to the template.
+    # The 2nd one is setting that variable to the ordered list created above
 
 
 @app.route("/add_category", methods=["GET", "POST"])
