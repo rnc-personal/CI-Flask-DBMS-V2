@@ -21,7 +21,7 @@
                 <!-- We use the key from the DB here to output the name of the item -->
             </div>
             <div class="card-action">
-                <a href="#" class="btn green accent-4">Edit</a>
+                <a href="{{ url_for('edit_category', category_id=category.id) }}" class="btn green accent-4">Edit</a>
                 <a href="#" class="btn red">Delete</a>
             </div>
         </div>
